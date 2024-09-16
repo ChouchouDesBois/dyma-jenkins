@@ -1,11 +1,25 @@
-pipeline {
-    agent any
+pipeline{
+    agent{
+        label "node"
+    }
+    stages{
+        stage("build"){
+            steps{
+                echo "========executing A========"
+            }
+        }
 
-    stages {
-        stage('Build') {
-            steps {
-                echo 'Building..'
+        stage ("test"){
+            steps{
+                echo "========executing B========"
+            }
+        }
+
+        stage("deployment"){
+            steps{
+                echo "========executing C========"
             }
         }
     }
+    
 }
